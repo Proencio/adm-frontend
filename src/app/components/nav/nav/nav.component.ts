@@ -20,7 +20,7 @@ export class NavComponent implements OnInit {
   }
 
   empresa() {
-    this.router.navigate(['empresa']);
+    this.router.navigate(['empresa/perfil']);
   }
 
 }

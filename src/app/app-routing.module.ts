@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FormEmpresaComponent } from './components/empresa/form-empresa/form-empresa.component';
+import { PerfilEmpresaComponent } from './components/empresa/perfil-empresa/perfil-empresa.component';
 import { HomeComponent } from './components/home/home.component';
 import { UsuariosComponent } from './components/usuarios/usuarios/usuarios.component';
 
@@ -15,6 +17,13 @@ const routes: Routes = [
   {
     path: 'usuarios',
     component: UsuariosComponent
+  },
+  {
+    path: 'empresa',
+    children: [
+      { path: 'perfil', component: PerfilEmpresaComponent },
+      { path: 'editar', component: FormEmpresaComponent },
+    ],
   },
   // {
   //   path: 'produtos',
