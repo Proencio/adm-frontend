@@ -1,0 +1,30 @@
+.body-menu {
+    position:fixed;
+    left: 0rem; 
+    top: 3.5rem;
+    padding:6px;
+    width: 250px;
+    border-width: 1px;
+    border-color: #c8c9ca;
+}
+
+.iten {
+    color: #303131;
+    margin-left: 15px;
+    margin-top: 5px;
+}
+
+.iten i {
+    margin-right: 10px;
+}
+
+.iten hr {
+    color: #303131;
+}
+
+.button-menu {
+    background: transparent;
+    border-color: transparent;
+    width: 100%;
+    text-align: start;
+}
