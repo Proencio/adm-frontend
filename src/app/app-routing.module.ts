@@ -20,10 +20,11 @@ const routes: Routes = [
   },
   {
     path: 'empresa',
-    children: [
-      { path: 'perfil', component: PerfilEmpresaComponent },
-      { path: 'editar', component: FormEmpresaComponent },
-    ],
+    component: PerfilEmpresaComponent
+  },
+  {
+    path: 'empresa-edit/:id',
+    component: FormEmpresaComponent
   },
   // {
   //   path: 'produtos',

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IEmpresa } from 'src/app/model/Empresa';
 import { EmpresaService } from 'src/app/service/empresa/empresa.service';
 
@@ -9,7 +10,7 @@ import { EmpresaService } from 'src/app/service/empresa/empresa.service';
 })
 export class PerfilEmpresaComponent implements OnInit {
   empresa: IEmpresa | undefined;
-  constructor(private empresaService: EmpresaService) { }
+  constructor(private empresaService: EmpresaService, private router: Router) { }
 
   ngOnInit(): void {
     this.buscaEmpresa();
@@ -26,4 +27,11 @@ export class PerfilEmpresaComponent implements OnInit {
     );
   }
 
+  editar() {
+    // this.router.navigate(['empresa-edit']);
+    if (this.empresa != null && this.empresa.id != undefined) {
+      this.router.navigate(['empresa-edit/', this.empresa.id]);
+    }    
+    // [routerLink]="['/chamados/novo/', empresa.id]"
+  }
 }

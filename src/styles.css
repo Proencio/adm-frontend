@@ -3,3 +3,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 html, body { height: 100%; }
 body { margin: 0; font-family: Noto Sans, "Inter", sans-serif !important; }
+
+
+
+:root {
+    --wine-gold: #C78C19;
+
+    --wine-cinza-50: #f1f4f7;
+    --wine-cinza-100: #CED4DA;
+    --wine-cinza-200: #ADB5BD;
+    --wine-cinza-500: #868E96;
+    --wine-cinza-600: #495057;
+    --wine-cinza-700: #343A40;
+
+    --wine-azul-100: #609ED4;
+    --wine-azul-600: #072B61;
+    --wine-azul-700: #052051;
+}

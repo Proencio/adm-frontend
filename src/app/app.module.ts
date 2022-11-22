@@ -10,7 +10,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
 import { MenuComponent } from './components/menu/menu.component';
-import { FooterComponent } from './components/footer/footer.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { NavComponent } from './components/nav/nav/nav.component';
@@ -20,19 +19,20 @@ import { AltUsuarioComponent } from './components/usuarios/alt-usuario/alt-usuar
 import { UsuariosComponent } from './components/usuarios/usuarios/usuarios.component';
 import { PerfilEmpresaComponent } from './components/empresa/perfil-empresa/perfil-empresa.component';
 import { FormEmpresaComponent } from './components/empresa/form-empresa/form-empresa.component';
+import { AlertModalComponent } from './shared/alert-modal/alert-modal/alert-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     MenuComponent,
-    FooterComponent,
     NavComponent,
     AddUsuarioComponent,
     AltUsuarioComponent,
     UsuariosComponent,
     PerfilEmpresaComponent,
     FormEmpresaComponent,
+    AlertModalComponent,
   ],
   imports: [
     BrowserModule,

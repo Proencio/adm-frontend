@@ -1,7 +1,9 @@
 <div class="body" *ngIf="empresa">
-    <h1>Empresa</h1>
 
     <div class="card card-empresa">    
+        <div class="card-header">
+            <h1>Empresa</h1>
+        </div>
         
         <div class="divisor">
             <div class="logo">
@@ -11,11 +13,12 @@
             <hr width="2" size="150" style="background: #343A40">
 
             <div class="dados">
-                <p> {{ empresa.fantasia != undefined? empresa.fantasia : "--" }} <button><i class="bi bi-pencil-fill"></i></button></p>                
+                <p> {{ empresa.fantasia != undefined? empresa.fantasia : "--" }} 
+                    <button (click)="editar()"><i class="bi bi-pencil-fill"></i></button></p>                
             </div>
         </div>
 
-        <div style="margin-top: 20px;">
+        <div style="margin: 30px;">
             <label>Razão Social</label>
             <p class="dados-empresa"> {{ empresa.social != undefined? empresa.social: "--" }} </p>
 

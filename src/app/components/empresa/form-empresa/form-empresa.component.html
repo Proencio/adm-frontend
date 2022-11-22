@@ -1,1 +1,57 @@
-<p>form-empresa works!</p>
+<div class="body">
+    <div class="card card-form">
+        <div class="card-header">
+            <h1>Editar Empresa</h1>
+        </div>
+
+        
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="container">
+                
+                    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                            <div class="form-group format-label">
+                                <label for="inputAddress">Fantasia</label>
+                                <input type="text" class="form-control" formControlName="fantasia">
+                            </div>
+
+                            <div class="form-group format-label">
+                                <label for="inputAddress">Social</label>
+                                <input type="text" class="form-control" formControlName="social">
+                            </div>
+        
+                            <div class="form-group format-label">
+                                <label for="inputAddress2">E-mail</label>
+                                <input type="email" class="form-control" formControlName="email">
+                            </div>
+        
+                            <div class="form-group format-label">
+                                <label for="inputAddress2">Telefone</label>
+                                <input type="fone" class="form-control" formControlName="telefone">
+                            </div>
+
+                            <div class="form-group format-label">
+                                <label for="inputAddress2">WhatsApp</label>
+                                <input type="fone" class="form-control" formControlName="whatsapp">
+                            </div>
+        
+                            <div class="form-group format-label" *ngIf="empresa.cnpj">
+                              <label for="inputAddress2">CNPJ</label>
+                              <input type="number" class="form-control"  formControlName="cnpj">
+                            </div>
+
+                            <div class="form-group format-label" *ngIf="empresa.cpf">
+                                <label for="inputAddress2">CPF</label>
+                                <input type="number" class="form-control"  formControlName="cpf">
+                              </div>
+                          
+                            <button type="submit" class="btn btn-primary" style="float:right" >SALVAR</button>
+                    </form>
+        
+                    
+            </div>
+        </form>
+        
+          
+
+    </div>
+</div>

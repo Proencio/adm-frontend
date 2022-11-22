@@ -1,0 +1,14 @@
+.body {
+    padding: 20px;
+    color: var(--wine-cinza-700);
+}
+
+h1 {
+    font-size: 18px;
+}
+
+.card-form {
+    width: 80%;
+    display: flex;
+    margin: 0 auto;
+}

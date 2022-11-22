@@ -44,11 +44,12 @@
 
     </mat-drawer>
     <mat-drawer-content>
-          <div style="margin-top: 3.5rem;">
+          <div style="min-height: 90vh; margin-top: 3.5rem;">
             <router-outlet></router-outlet>
-            <app-footer></app-footer>
+            <!-- <app-footer></app-footer> -->
           </div>
+          <footer>
+            <p style="text-align: center; bottom: 0px;">&copy; Copyright John Proencio - 2022</p>
+          </footer>
     </mat-drawer-content>
   </mat-drawer-container>
-
-
