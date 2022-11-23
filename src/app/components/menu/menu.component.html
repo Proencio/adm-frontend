@@ -4,8 +4,8 @@
           <i class="bi bi-list" (click)="menu()"></i>
       </div>
       
-      <a class="navbar-brand px-4" href="#">
-          Pinot Wine
+      <a class="navbar-brand px-4" href="#" *ngIf="empresa">
+          {{ empresa.fantasia }}
       </a>
       
       <a class="navbar-collapse">

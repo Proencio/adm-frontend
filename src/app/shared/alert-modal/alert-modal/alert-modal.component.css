@@ -1,0 +1,21 @@
+
+.alert-card {
+    margin-bottom: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+i {
+    font-size: 22px;
+}
+
+.button-div {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    background: transparent;
+    border-color: transparent;
+    font-size: 24px;
+}

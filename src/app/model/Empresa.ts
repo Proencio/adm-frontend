@@ -14,6 +14,7 @@ export interface IEmpresa {
     complemento: string;
     observacao: string;
     logradouro: ILogradouro;
+    numero: number;
   }
   
   export class IEmpresaDTO {
@@ -30,6 +31,7 @@ export interface IEmpresa {
     complemento: string;
     observacao: string;
     logradouro: ILogradouro;
+    numero: number;
   
     constructor(formValue: IEmpresa) {
       this.id = formValue.id;
@@ -45,5 +47,6 @@ export interface IEmpresa {
       this.cnpj = formValue.cnpj;
       this.cpf = formValue.cpf;
       this.logradouro = formValue.logradouro;
+      this.numero = formValue.numero;
     }
   }

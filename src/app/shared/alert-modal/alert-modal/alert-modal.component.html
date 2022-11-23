@@ -1,7 +1,11 @@
-<div class="alert alert-{{ type }} " role="alert" style="margin-bottom: 0;">
-    <!-- <mat-icon>{{ icon }}</mat-icon> -->
-    {{ message }}
-    <button type="button" (click)="onClose()" mat-icon-button>
-        <!-- <mat-icon>clear</mat-icon> -->
-    </button>
+<div class="alert alert-{{ type }} alert-card" role="alert">
+    <div>
+        <i class="{{ icon }}"></i>
+        {{ message }}
+    </div>
+    <div class="button-div">
+        <button type="button" (click)="onClose()">
+            <i class="bi bi-x-circle-fill"></i>
+        </button>
+    </div>
 </div>

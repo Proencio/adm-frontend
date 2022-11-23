@@ -20,6 +20,7 @@ import { UsuariosComponent } from './components/usuarios/usuarios/usuarios.compo
 import { PerfilEmpresaComponent } from './components/empresa/perfil-empresa/perfil-empresa.component';
 import { FormEmpresaComponent } from './components/empresa/form-empresa/form-empresa.component';
 import { AlertModalComponent } from './shared/alert-modal/alert-modal/alert-modal.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { AlertModalComponent } from './shared/alert-modal/alert-modal/alert-moda
     FormsModule,
     MatTableModule,
     MatTabsModule,
-    MatSidenavModule
+    MatSidenavModule,
+    ModalModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,11 +6,11 @@
         </div>
         
         <div class="divisor">
-            <div class="logo">
-                <img src="../../../../assets/images/rosa_preta.jpg"/>
+            <div>
+                <img src="../../../../assets/images/rosa_preta.jpg" class="logo"/>
             </div>
     
-            <hr width="2" size="150" style="background: #343A40">
+            <!-- <hr width="2" size="150" style="background: #343A40"> -->
 
             <div class="dados">
                 <p> {{ empresa.fantasia != undefined? empresa.fantasia : "--" }} 
@@ -18,33 +18,65 @@
             </div>
         </div>
 
-        <div style="margin: 30px;">
-            <label>Razão Social</label>
-            <p class="dados-empresa"> {{ empresa.social != undefined? empresa.social: "--" }} </p>
+        
+        <div style="padding: 25px;">
+            <div class="div-row">
+                <div class="form-group" style="width: 48%;">
+                    <label>Razão Social</label>
+                    <p class="dados-empresa"> {{ empresa.social != undefined? empresa.social: "--" }} </p>
+                </div>
+                <div class="form-group" style="width: 48%;">
+                    <label>CNPJ/CPF</label>
+                    <p class="dados-empresa"> {{ empresa.cnpj != undefined? empresa.cnpj : "--" }} </p>
+                </div>
+            </div>
 
-            <label>CNPJ/CPF</label>
-            <p class="dados-empresa"> {{ empresa.cnpj != undefined? empresa.cnpj : "--" }} </p>
-
+    
             <label>E-mail</label>
             <p class="dados-empresa"> {{ empresa.email != undefined? empresa.email : "--" }} </p>
+    
 
-            <label>Telefone</label>
-            <p class="dados-empresa"> {{ empresa.telefone != undefined? empresa.telefone : "--" }} </p>
-
-            <label>WhatsApp</label>
-            <p class="dados-empresa"> {{ empresa.whatsapp != undefined? empresa.whatsapp : "--" }} </p>
-
-            <label>CEP</label>
-            <p class="dados-empresa"> {{ empresa.logradouro != undefined? empresa.logradouro.cep : "--" }} </p>
-
-            <label>Rua</label>
-            <p class="dados-empresa"> {{ empresa.logradouro != undefined? empresa.logradouro.rua : "--" }} </p>
-
-            <label>Cidade</label>
-            <p class="dados-empresa"> {{ empresa.logradouro != undefined? empresa.logradouro.cidade : "--" }} </p>
-
-            <label>Estado</label>
-            <p class="dados-empresa"> {{ empresa.logradouro != undefined? empresa.logradouro.estado : "--" }} </p>
+            <div class="div-row">
+                <div class="form-group" style="width: 48%;">
+                    <label>Telefone</label>
+                    <p class="dados-empresa"> {{ empresa.telefone != undefined? empresa.telefone : "--" }} </p>
+                </div>
+                <div class="form-group" style="width: 48%;">
+                    <label>WhatsApp</label>
+                    <p class="dados-empresa"> {{ empresa.whatsapp != undefined? empresa.whatsapp : "--" }} </p>
+                </div>
+            </div>
+    
+    
+            <!-- ------------------ ENDEREÇO ----------------- -->
+            <div class="body-cep" style="padding: 15px;">
+                <p style="font-size: 18px; font-weight: 560;">Endereço</p>
+    
+                <div style=" width: 30%; min-width: 150px;">
+                    <label>CEP</label>
+                    <p class="dados-empresa"> {{ empresa.logradouro != undefined? empresa.logradouro.cep : "--" }} </p>
+                </div>
+    
+                <div class="div-row">
+                    <div class="form-group">
+                        <label>Estado</label>
+                        <p class="dados-empresa"> {{ empresa.logradouro != undefined? empresa.logradouro.estado : "--" }} </p>
+                    </div>
+                    <div class="form-group">
+                        <label>Cidade</label>
+                        <p class="dados-empresa"> {{ empresa.logradouro != undefined? empresa.logradouro.cidade : "--" }} </p>
+                    </div>
+                    <div class="form-group">
+                        <label>Bairro</label>
+                        <p class="dados-empresa"> {{ empresa.logradouro != undefined? empresa.logradouro.bairro : "--" }} </p>
+                    </div>
+                </div>
+    
+                <div style="width: 100%; min-width: 150px;">
+                    <label>Rua</label>
+                    <p class="dados-empresa"> {{ empresa.logradouro != undefined? empresa.logradouro.rua : "--" }} </p>
+                </div>
+            </div>
         </div>
         
     </div>

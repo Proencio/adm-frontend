@@ -7,8 +7,27 @@ h1 {
     font-size: 18px;
 }
 
+.container {
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
 .card-form {
-    width: 80%;
+    width: 70%;
     display: flex;
     margin: 0 auto;
+}
+
+.format-label {
+    margin-top: 15px;
+    
+}
+
+.row {
+    margin-bottom: 15px;
+}
+
+button {
+    margin-top: 15px;
+    width: 150px;
 }

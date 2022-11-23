@@ -20,6 +20,7 @@ export class PerfilEmpresaComponent implements OnInit {
     this.empresaService.buscaEmpresa().subscribe(
       (res) => {
         this.empresa = res;
+        localStorage.setItem('DadosEmpresa', JSON.stringify(this.empresa));
       },
       (err) => {
         console.log(err);
@@ -30,7 +31,8 @@ export class PerfilEmpresaComponent implements OnInit {
   editar() {
     // this.router.navigate(['empresa-edit']);
     if (this.empresa != null && this.empresa.id != undefined) {
-      this.router.navigate(['empresa-edit/', this.empresa.id]);
+      // this.router.navigate(['empresa-edit/', this.empresa.id]);
+      this.router.navigate(['empresa-edit']);
     }    
     // [routerLink]="['/chamados/novo/', empresa.id]"
   }

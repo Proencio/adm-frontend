@@ -1,8 +1,11 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable, Subscription, switchMap, timer } from 'rxjs';
 import { IEmpresa, IEmpresaDTO } from 'src/app/model/Empresa';
 import { EmpresaService } from 'src/app/service/empresa/empresa.service';
+import { AlertModalService } from 'src/app/shared/alert-modal.service';
 
 @Component({
   selector: 'app-form-empresa',
@@ -13,38 +16,71 @@ export class FormEmpresaComponent implements OnInit {
   [x: string]: any;
   empresa: any;
   form!: FormGroup;
+  subscription: Subscription | undefined;
   
   constructor(private route: ActivatedRoute,
     private router: Router,
     private empresaService: EmpresaService,
-    private formBuilder: FormBuilder,) { }
+    private formBuilder: FormBuilder,
+    private alertServices: AlertModalService) { }
     
   ngOnInit(): void {
     this.initForm();
+    this.getEmpresa();    
+  }
 
-    this.route.paramMap.subscribe((params) =>
-    {
-      if (params.get('id') !== null) {
-        const id = params.get('id');
-        if (id != null && id != undefined) {
-          var empresaId = id;
-          this.empresa = this.empresaService.getOne(empresaId).subscribe(
-            (res) => {
-              this.empresa = res;
-              this.patchForm();
-            },
-            (err) => {
-              console.log(err);
-            }
-          );
-          console.log(this.empresa);
-        }
-      } else {
-        this.router.navigate(['empresa']);
-        console.log("Não recebido ...");
-      }
-    });
+  getEmpresa() {
+    const emp = localStorage.getItem("DadosEmpresa");
+    if (emp != null && emp != undefined) {
+      this.empresa = JSON.parse(emp);
 
+      console.log(this.empresa);
+      this.patchForm();
+    }
+  }
+
+  // getIdEmpresa() {
+  //   this.route.paramMap.subscribe((params) =>
+  //   {
+  //     if (params.get('id') !== null) {
+  //       const id = params.get('id');
+  //       if (id != null && id != undefined) {
+  //         var empresaId = id;
+  //         this.empresa = this.empresaService.getOne(empresaId).subscribe(
+  //           (res) => {
+  //             this.empresa = res;
+  //             this.patchForm();
+  //           },
+  //           (err) => {
+  //             console.log(err);
+  //           }
+  //         );
+  //         console.log(this.empresa);
+  //       }
+  //     } else {
+  //       this.router.navigate(['empresa']);
+  //     }
+  //   });
+  // }
+
+  subscribWithFilter() {
+    this.subscription = timer(0, 1000)
+      .pipe(switchMap(async () => this.validate()))
+      .subscribe((result) => result);
+  }
+
+  // subscribNoFilter() {
+  //   timer(0, 1000)
+  //     .pipe(switchMap(async () => this.validate))
+  //     .subscribe((result) => result);
+  // }
+  
+
+  validate() {
+    console.log("validate ...");
+    if (this.empresa == undefined) {
+      this.router.navigate(['empresa']);
+    }
   }
 
   initForm()
@@ -58,6 +94,13 @@ export class FormEmpresaComponent implements OnInit {
       whatsapp: [null,[Validators.required]],
       cnpj: [null],
       cpf: [null],
+      cep: [null, [Validators.required, Validators.minLength(8)]],
+      rua: [null],
+      numero: [null],
+      estado: [null],
+      cidade: [null],
+      complemento: [null],
+      observacao: [null]
     });
   }
 
@@ -72,6 +115,13 @@ export class FormEmpresaComponent implements OnInit {
       whatsapp: this.empresa.whatsapp,
       cnpj: this.empresa.cnpj,
       cpf: this.empresa.cpf,
+      cep: this.empresa.logradouro.cep,
+      rua: this.empresa.logradouro.rua,
+      numero: this.empresa.numero,
+      estado: this.empresa.logradouro.estado,
+      cidade: this.empresa.logradouro.cidade,
+      complemento: this.empresa.complemento,
+      observacao: this.empresa.observacao,
     });
   }
 
@@ -83,10 +133,18 @@ export class FormEmpresaComponent implements OnInit {
       return;
     }
     const dto = new IEmpresaDTO(this.form.value as IEmpresaDTO);
+    dto.data = this.empresa.data;
+    dto.id = this.empresa.id;
+    dto.logo = this.empresa.logo;
+    dto.complemento = this.empresa.complemento;
+    dto.observacao = this.empresa.observacao;
+    dto.logradouro = this.empresa.logradouro;
+
+    this.update(dto);
   }
 
   update(empresa: IEmpresaDTO) {
-    this.empresaService.edit(empresa).subscribe(
+    this.empresaService.update(empresa).subscribe(
       (data: any) => {
         // this.submitted = false;
         this.handSuccess("Dados da empresa alterado com sucesso.");
@@ -97,6 +155,10 @@ export class FormEmpresaComponent implements OnInit {
         console.log(err);
       }
     );
+  }
+
+  cancelar() {
+    this.router.navigate(['empresa']);
   }
 
   get f()

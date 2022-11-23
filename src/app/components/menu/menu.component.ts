@@ -10,12 +10,20 @@ import { Router } from '@angular/router';
 export class MenuComponent implements OnInit {
   @Input() openMenu: any;
   @Output() respostaOpenMenu = new EventEmitter();
+
+  empresa: any;
   
   constructor(private router: Router) { }
 
   ngOnInit() {
-    console.log(this.openMenu);
-    console.log('Objeto familia recebido do component pai via Input: ', this.openMenu);
+    this.getEmpresa();
+  }
+
+  getEmpresa() {
+    const emp = localStorage.getItem("DadosEmpresa");
+    if (emp != null && emp != undefined) {
+      this.empresa = JSON.parse(emp);
+    }
   }
 
   produtos(): void {

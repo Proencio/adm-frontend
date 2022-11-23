@@ -1,4 +1,4 @@
-<div class="body">
+<div class="body" *ngIf="empresa">
     <div class="card card-form">
         <div class="card-header">
             <h1>Editar Empresa</h1>
@@ -8,7 +8,7 @@
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
             <div class="container">
                 
-                    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                    <!-- <form [formGroup]="form" (ngSubmit)="onSubmit()"> -->
                             <div class="form-group format-label">
                                 <label for="inputAddress">Fantasia</label>
                                 <input type="text" class="form-control" formControlName="fantasia">
@@ -23,35 +23,104 @@
                                 <label for="inputAddress2">E-mail</label>
                                 <input type="email" class="form-control" formControlName="email">
                             </div>
-        
-                            <div class="form-group format-label">
-                                <label for="inputAddress2">Telefone</label>
-                                <input type="fone" class="form-control" formControlName="telefone">
+
+                            <div style="display: flex; width: 100%; flex-wrap: wrap; justify-content: space-between;">
+                                <div class="form-group format-label" style="width: 48%; min-width: 150px;">
+                                    <label for="inputAddress2">Telefone</label>
+                                    <input type="fone" class="form-control" formControlName="telefone">
+                                </div>
+    
+                                <div class="form-group format-label" style="width: 48%; min-width: 150px; ">
+                                    <label for="inputAddress2">WhatsApp</label>
+                                    <input type="fone" class="form-control" formControlName="whatsapp">
+                                </div>
                             </div>
 
-                            <div class="form-group format-label">
-                                <label for="inputAddress2">WhatsApp</label>
-                                <input type="fone" class="form-control" formControlName="whatsapp">
+                            <div style="display: flex; width: 100%; flex-wrap: wrap; justify-content: space-between;">
+                                <div class="form-group format-label" style="width: 48%; min-width: 150px;">
+                                <label for="inputAddress2">CNPJ</label>
+                                <input type="number" class="form-control"  formControlName="cnpj">
+                                </div>
+
+                                <div class="form-group format-label" style="width: 48%; min-width: 150px;">
+                                    <label for="inputAddress2">CPF</label>
+                                    <input type="number" class="form-control"  formControlName="cpf">
+                                </div>
                             </div>
         
-                            <div class="form-group format-label" *ngIf="empresa.cnpj">
-                              <label for="inputAddress2">CNPJ</label>
-                              <input type="number" class="form-control"  formControlName="cnpj">
-                            </div>
-
-                            <div class="form-group format-label" *ngIf="empresa.cpf">
-                                <label for="inputAddress2">CPF</label>
-                                <input type="number" class="form-control"  formControlName="cpf">
-                              </div>
+                            
                           
-                            <button type="submit" class="btn btn-primary" style="float:right" >SALVAR</button>
-                    </form>
+                            
+                    <!-- </form> -->
         
                     
+             
+
+                <hr style="display: flex; margin: 0 auto; margin: 25px;">
+            
+                <div class="card" style="width: 100%; background: var(--wine-cinza-100); display: flex; margin: 0 auto; padding: 20px;">
+                    <p>Endereço</p>
+                    
+                    <div class="row">
+                        <div class="col-4 form-group" *ngIf="empresa.logradouro">
+                            <label for="inputAddress">CEP</label>
+                            <input type="text" class="form-control" formControlName="cep">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-4 form-group" *ngIf="empresa.logradouro">
+                            <label for="inputAddress">Estado</label>
+                            <input type="text" class="form-control" formControlName="estado">
+                        </div>
+    
+                        <div class="col-4 form-group" *ngIf="empresa.logradouro">
+                            <label for="inputAddress">Cidade</label>
+                            <input type="text" class="form-control" formControlName="cidade">
+                        </div>
+                        <div class="col-4 form-group" *ngIf="empresa.logradouro">
+                            <label for="inputAddress">Bairro</label>
+                            <input type="text" class="form-control" formControlName="bairro">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 form-group" style="width: 100%;" *ngIf="empresa.logradouro">
+                            <label for="inputAddress">Rua</label>
+                            <input type="text" class="form-control" formControlName="rua">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6 form-group" *ngIf="empresa.logradouro">
+                            <label for="inputAddress">Número</label>
+                            <input type="number" class="form-control" formControlName="numero">
+                        </div>
+    
+                        <div class="col-6 form-group" *ngIf="empresa.logradouro">
+                            <label for="inputAddress">Complemento</label>
+                            <input type="text" class="form-control" formControlName="complemento">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6 form-group" style="width: 100%;" *ngIf="empresa.logradouro">
+                            <label for="inputAddress">Observação</label>
+                            <input type="text" class="form-control" formControlName="observacao">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" style="width: 80%; display: flex; margin: 0 auto; justify-content: space-between; margin-top: 15px; margin-bottom: 20px;">
+                    <button (click)="cancelar()" class="col-6 btn btn-secondary" style="width: 48%;">CANCELAR</button>
+                    <button type="submit" class="col-6 btn btn-primary" style="width: 48%;">SALVAR</button>
+                </div>
+
             </div>
+               
         </form>
         
-          
+        
 
     </div>
 </div>

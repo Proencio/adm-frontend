@@ -23,7 +23,7 @@ const routes: Routes = [
     component: PerfilEmpresaComponent
   },
   {
-    path: 'empresa-edit/:id',
+    path: 'empresa-edit',
     component: FormEmpresaComponent
   },
   // {
