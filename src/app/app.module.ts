@@ -21,6 +21,10 @@ import { PerfilEmpresaComponent } from './components/empresa/perfil-empresa/perf
 import { FormEmpresaComponent } from './components/empresa/form-empresa/form-empresa.component';
 import { AlertModalComponent } from './shared/alert-modal/alert-modal/alert-modal.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { CategoriaListComponent } from './components/categoria/categoria-list/categoria-list.component';
+import { CategoriaFormComponent } from './components/categoria/categoria-form/categoria-form.component';
+import { CategoriaAddComponent } from './components/categoria/categoria-add/categoria-add.component';
+import { CategoriaUpdateComponent } from './components/categoria/categoria-update/categoria-update.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +38,10 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     PerfilEmpresaComponent,
     FormEmpresaComponent,
     AlertModalComponent,
+    CategoriaListComponent,
+    CategoriaFormComponent,
+    CategoriaAddComponent,
+    CategoriaUpdateComponent,
   ],
   imports: [
     BrowserModule,

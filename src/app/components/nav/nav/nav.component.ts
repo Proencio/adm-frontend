@@ -23,4 +23,8 @@ export class NavComponent implements OnInit {
     this.router.navigate(['empresa']);
   }
 
+  categorias() {
+    this.router.navigate(['categorias']);
+  }
+
 }

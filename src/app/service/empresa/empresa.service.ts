@@ -39,7 +39,7 @@ export class EmpresaService extends GenericServiceService<IEmpresa> {
     return this.http.post(CONFIG.api + '/create', empresa).pipe(
       // tap(data => console.log(data)),
       // take(1),
-      // catchError(this.handleError)
+      catchError(this.handleError)
     );
   }
 }

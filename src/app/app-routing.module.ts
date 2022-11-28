@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CategoriaAddComponent } from './components/categoria/categoria-add/categoria-add.component';
+import { CategoriaListComponent } from './components/categoria/categoria-list/categoria-list.component';
+import { CategoriaUpdateComponent } from './components/categoria/categoria-update/categoria-update.component';
 import { FormEmpresaComponent } from './components/empresa/form-empresa/form-empresa.component';
 import { PerfilEmpresaComponent } from './components/empresa/perfil-empresa/perfil-empresa.component';
 import { HomeComponent } from './components/home/home.component';
@@ -26,18 +29,18 @@ const routes: Routes = [
     path: 'empresa-edit',
     component: FormEmpresaComponent
   },
-  // {
-  //   path: 'produtos',
-  //   component: ProdutosComponent
-  // },
-  // {
-  //   path: 'sacola',
-  //   component: SacolaComponent
-  // },
-  // {
-  //   path: 'produto/perfil',
-  //   component: PerfilComponent
-  // },
+  {
+    path: 'categorias',
+    component: CategoriaListComponent
+  },
+  {
+    path: 'add-categoria',
+    component: CategoriaAddComponent
+  },
+  {
+    path: 'edite-categoria',
+    component: CategoriaUpdateComponent
+  },
   // {
   //   path: 'pedido',
   //   component: PedidoComponent

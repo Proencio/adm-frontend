@@ -1,0 +1,42 @@
+<div class="body">
+    <div class="card">
+        <div class="card-header">
+            <h1 *ngIf="!categoria">Cadastro de catalogo</h1>
+            <h1 *ngIf="categoria">Editar catalogo</h1>
+        </div>
+
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="container">
+                <div class="form-group">
+                    <label for="inputAddress">Nome</label>
+                    <input type="text" class="form-control" formControlName="nome">
+                </div>
+
+                <div class="form-group">
+                    <label for="inputAddress">Descrição</label>
+                    <input type="text" class="form-control" formControlName="descricao">
+                </div>
+
+                <div class="form-group">
+                    <label for="inputAddress">É SubCategoria?</label>
+                    <label class="btn btn-secondary active" style="margin-left: 10px; display: flex; margin-left: 0px; width: 40px;" >
+                        <input type="checkbox" (change)="obterListCatalogo()">
+                    </label>
+                </div>
+
+                <div class="form-group" *ngIf="listCategorias">
+                    <label for="inputAddress">Selecione a categoria pai</label>
+                    <select class="form-control" formControlName="categoriaPai">
+                        <option *ngFor="let categoriaPai of listCategorias" [value]="categoriaPai.id">{{categoriaPai.nome}}</option>
+                      </select>
+                </div>
+
+
+                <div class="button">
+                    <button (click)="cancelar()" class="col-6 btn btn-secondary bt">CANCELAR</button>
+                    <button type="submit" class="col-6 btn btn-primary bt">SALVAR</button>
+                </div>
+            </div>               
+        </form>   
+    </div>
+</div>
